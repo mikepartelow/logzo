@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/mikepartelow/logzo/pkg/logging/tater"
+	"github.com/mikepartelow/logzo/pkg/tater"
 	"golang.org/x/exp/slog"
 )
 
