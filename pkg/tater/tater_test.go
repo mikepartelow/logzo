@@ -4,7 +4,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/mikepartelow/logzo/pkg/logging/tater"
+	"github.com/mikepartelow/logzo/pkg/tater"
 )
 
 var _ io.Writer = &tater.Tater{}
