@@ -3,7 +3,7 @@ name: Go
 on: push
 
 jobs:
-  build:
+  the-works:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
