@@ -1,6 +1,12 @@
 package tater
 
-import "os"
+import (
+	"errors"
+	"os"
+	"path/filepath"
+)
+
+var ErrWontErase = errors.New("won't overwrite with zero byte")
 
 type Tater struct {
 	filename string
@@ -32,12 +38,17 @@ func (t *Tater) Rotate() error {
 		t.file = nil
 	}
 
-	if _, err := os.Stat(t.filename); err == nil {
+	if info, err := os.Stat(t.filename); err == nil {
+		if info.Size() == 0 {
+			return ErrWontErase
+		}
 		// file exists, rotate it
 		if err := os.Rename(t.filename, t.filename+".1"); err != nil {
 			return err
 		}
 	}
+
+	_ = os.MkdirAll(filepath.Dir(t.filename), 0750)
 
 	var err error
 
