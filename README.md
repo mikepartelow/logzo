@@ -1,6 +1,6 @@
 # Logzo
 
-logzo builds some useful stuff on top of slog
+logzo builds some useful stuff on top of [slog](https://pkg.go.dev/golang.org/x/exp/slog)
 
 ## Tater
 
@@ -23,6 +23,7 @@ h1 := slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelInfo}
 h := multipass.New(h0, h1)
 
 slog.SetDefault(slog.New(h))
+
 slog.Debug("spam")           // logs "spam" to stderr/text
 slog.Info("eggs")            // logs "eggs" to stderr/text and stdout/json
 ```

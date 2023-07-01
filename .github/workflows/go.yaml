@@ -6,13 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout
+    - uses: actions/checkout@v3
 
     - name: Set up Go
-      uses: actions/setup-go
+      uses: actions/setup-go@v3
 
     - name: Lint
-      uses: golangci/golangci-lint-action
+      uses: golangci/golangci-lint-action@v3
 
     - name: Test
       run: go test -cover -v ./...
